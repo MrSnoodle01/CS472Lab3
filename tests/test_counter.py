@@ -66,3 +66,8 @@ class TestCounterEndPoints:
 
         # make sure that values match
         assert(counterVal == postCounterVal)
+
+    def test_delete_counter(self, client):
+        """delete a counter"""
+        result = client.delete('/counters/randName')
+        assert result.status_code == status.HTTP_204_NO_CONTENT

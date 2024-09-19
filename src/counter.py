@@ -34,3 +34,10 @@ def get_counter(name):
     """get counter value"""
     if name in COUNTERS:
         return {name: COUNTERS[name]}, status.HTTP_200_OK
+    
+
+@app.route('/counters/<name>', methods=['DELETE'])
+def delete_counter(name):
+    """delete counter"""
+    if not name in COUNTERS:
+        return "what", status.HTTP_204_NO_CONTENT
