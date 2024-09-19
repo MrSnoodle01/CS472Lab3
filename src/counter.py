@@ -41,4 +41,3 @@ def delete_counter(name):
     """delete counter"""
     if name not in COUNTERS:
         return "No name in dict", status.HTTP_204_NO_CONTENT
-    
