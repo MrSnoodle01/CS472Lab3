@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 COUNTERS = {}
 
+
 # We will use the app decorator and create a route called slash counters.
 # specify the variable in route <name>
 # let Flask know that the only methods that is allowed to called
@@ -31,5 +32,5 @@ def update_counter(name):
 @app.route('/counters/<name>', methods=['GET'])
 def get_counter(name):
     """get counter value"""
-    if name in COUNTERS: 
+    if name in COUNTERS:
         return {name: COUNTERS[name]}, status.HTTP_200_OK
