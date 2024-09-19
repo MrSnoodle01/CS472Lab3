@@ -15,9 +15,10 @@ def create_counter(name):
     app.logger.info(f"Request to create counter: {name}")
     global COUNTERS
     if name in COUNTERS:
-        return {"Message":f"Counter {name} already exists"}, status.HTTP_409_CONFLICT
+        return {"Message": f"Counter {name} already exists"}, status.HTTP_409_CONFLICT
     COUNTERS[name] = 0
     return {name: COUNTERS[name]}, status.HTTP_201_CREATED
+
 
 @app.route('/counters/<name>', methods=['PUT'])
 def update_counter(name):
@@ -25,6 +26,7 @@ def update_counter(name):
     if name in COUNTERS:
         COUNTERS[name] = COUNTERS[name] + 1
         return {name: COUNTERS[name]}, status.HTTP_200_OK
+
 
 @app.route('/counters/<name>', methods=['GET'])
 def get_counter(name):
